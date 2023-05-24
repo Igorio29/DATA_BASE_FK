@@ -1,61 +1,90 @@
-CREATE TABLE genero_dos_filmes (
-    id_genero INTEGER PRIMARY KEY NOT NULL,
-    nome_genero VARCHAR(50) NOT NULL
+CREATE TABLE estudio_dos_filmes (
+    id_estudio INTEGER PRIMARY KEY NOT NULL,
+    estudio VARCHAR(50) NOT NULL
 );
 
-INSERT INTO genero_dos_filmes VALUES (
+INSERT INTO estudio_dos_filmes VALUES (
     1,
-    'ACAO'
+    'dreamworks'
 );
-INSERT INTO genero_dos_filmes VALUES (
+
+INSERT INTO estudio_dos_filmes VALUES (
     2,
-    'COMEDIA'
+    'united_artistis'
 );
-INSERT INTO genero_dos_filmes VALUES (
+
+INSERT INTO estudio_dos_filmes VALUES (
     3,
-    'DOCUMENTARIO'
+    'universal'
 );
+
+INSERT INTO estudio_dos_filmes VALUES (
+    4,
+    'bibo_filmes'
+);
+
+INSERT INTO estudio_dos_filmes VALUES (
+    5,
+    'disney'
+);
+
+SELECT * FROM estudio_dos_filmes;
 
 CREATE TABLE filmes (
     id_filme INTEGER PRIMARY KEY NOT NULL,
-    nome_filme VARCHAR(50) NOT NULL,
-    protagonista_filme VARCHAR(50) NOT NULL,
-    tempo_filme TIME,
-    diretor_filme VARCHAR(50) NOT NULL,
-    ano_filme INTEGER NOT NULL,
-    id_genero INTEGER ,
-    FOREIGN KEY (id_genero) REFERENCES genero_dos_filmes(id_genero)
+    filme VARCHAR(50) NOT NULL,
+    ano VARCHAR(50) NOT NULL,
+    id_estudio INTEGER,
+    FOREIGN KEY (id_estudio) REFERENCES estudio_dos_filmes(id_estudio)
 );
-
 
 INSERT INTO filmes VALUES (
     1,
-    'O homem do ano',
-    'Murilo Benicio',
-    '02:20:00',
-    'Glauber Rocha',
-     2001,
-     1
+    'Como Treinar Seu Dragão',
+    '2010',
+    1
 );
 
 INSERT INTO filmes VALUES (
     2,
-    'Alto da Compadecida',
-    'Selton Melo',
-    '02:30:00',
-    'Guel Arraes',
-     2005,
-     2
+    'Os croods',
+    '2013',
+    1
 );
 
 INSERT INTO filmes VALUES (
     3,
-    'Tropa de Elite',
-    'Wagner Moura',
-    '02:10:00',
-    'Jose Padilha',
-     2007,
-     1
+    'shrek',
+    '2001',
+    1
 );
 
-SELECT * FROM filmes WHERE diretor_filme LIKE '%Padilha';
+INSERT INTO filmes VALUES (
+    4,
+    'chuck',
+    '1988',
+    2
+);
+
+INSERT INTO filmes VALUES (
+    5,
+    'Velozes e furiosos',
+    '2001',
+    4
+);
+
+INSERT INTO filmes VALUES (
+    6,
+    'um monstro em Paris',
+    '2011',
+    4
+);
+
+INSERT INTO filmes VALUES (
+    7,
+    'lilo e stitch',
+    '2002',
+    5
+);
+
+SELECT * FROM filmes;
